@@ -24,4 +24,9 @@ public class OrderServiceImpl implements OrderService{
         //OrderService 입장에서는 할인에 대해 신경 안써도됨. -> 단일체계원칙( 각각만 고치면 됨 )
         return new Order(memberId, itemName, itemPrice, discountPrice);
     }
+
+    //테스트 용도
+    public MemberRepository getMemberRepository() {
+        return memberRepository;
+    }
 }
