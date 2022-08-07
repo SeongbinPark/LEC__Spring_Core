@@ -28,7 +28,7 @@ public class ApplicationContextSameBeanFindTest {
         //(NoUniqueBeanDefinitionException)
         Assertions.assertThrows(NoUniqueBeanDefinitionException.class,
                 () -> ac.getBean(MemberRepository.class));
-    }
+    }//예외 터져야 성공한 테스트
 
     @Test
     @DisplayName("타입으로 조회시 같은 타입이 둘 이상 있으면, 빈 이름을 지정하면 된다.")
