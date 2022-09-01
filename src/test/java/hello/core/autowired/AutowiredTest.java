@@ -14,7 +14,6 @@ public class AutowiredTest {
     @Test
     void AutowiredOption() {
         ApplicationContext ac = new AnnotationConfigApplicationContext(TestBean.class);
-
     }
 
     static class TestBean {
@@ -29,6 +28,7 @@ public class AutowiredTest {
         public void setNoBean2(@Nullable Member noBean2) {//Member는 스프링이 관리하는 빈이 아니라 없는거 테스트하는거임.
             System.out.println("noBean2 = " + noBean2);
         }
+
         @Autowired//세번째 방법 : Optional 이용.
         public void setNoBean3(Optional<Member> noBean3) {//Member는 스프링이 관리하는 빈이 아니라 없는거 테스트하는거임.
             System.out.println("noBean3 = " + noBean3);

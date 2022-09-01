@@ -28,8 +28,6 @@ public class SingletonTest {
         System.out.println("memberService2 = " + memberService2);
 
         assertThat(memberService1).isNotSameAs(memberService2);
-
-
     }
 
     @Test
@@ -38,7 +36,8 @@ public class SingletonTest {
         SingletonService singletonService1 = SingletonService.getInstance();
         SingletonService singletonService2 = SingletonService.getInstance();
 
-
+        System.out.println("singletonService1 = " + singletonService1);
+        System.out.println("singletonService2 = " + singletonService2);
         assertThat(singletonService1).isSameAs(singletonService2);
         //isEqual : 값이 같은지
         //same : ==연산과 같은 ( 객체자체를 비교 )

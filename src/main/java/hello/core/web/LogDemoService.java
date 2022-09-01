@@ -10,9 +10,10 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class LogDemoService {
 //Prodvider 다 뺌 ( 지금은 오류나는 코드 )
-    private final MyLogger myLoggerProvider;
+    private final ObjectProvider<MyLogger> myLoggerProvider;
 
     public void logic(String id) {
-        myLoggerProvider.log("service id =" + id);
+        MyLogger myLogger = myLoggerProvider.getObject();
+        myLogger.log("service id =" + id);
     }
 }

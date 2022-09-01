@@ -14,6 +14,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ApplicationContextExtendsFindTest {
     AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(TestConfig.class);
@@ -21,8 +22,8 @@ public class ApplicationContextExtendsFindTest {
     @Test
     @DisplayName("부모 타입으로 조회시, 자식이 둘이상 있으면, 중복 오류가 발생한다.")
     void findBeanByParentTypeDuplicate() {
-        DiscountPolicy bean = ac.getBean(DiscountPolicy.class);
-        Assertions.assertThrows(NoUniqueBeanDefinitionException.class,
+//        DiscountPolicy bean = ac.getBean(DiscountPolicy.class);
+        assertThrows(NoUniqueBeanDefinitionException.class,
                 ()->ac.getBean(DiscountPolicy.class));
     }
 
@@ -36,7 +37,7 @@ public class ApplicationContextExtendsFindTest {
     @Test
     @DisplayName("부모타입으로 모두 조회하기")
     void findAllBeanByParentType() {
-        Map<String, DiscountPolicy> beansOfType = ac.getBeansOfType(DiscountPolicy.class);
+        Map<String, DiscountPolicy> beansOfType = ac.getBeansOfType(DiscountPolicy.class);//타입모두조회 : getBeansOfType
         assertThat(beansOfType.size()).isEqualTo(2);
     }
 
@@ -44,7 +45,7 @@ public class ApplicationContextExtendsFindTest {
     @DisplayName("부모타입으로 모두 조회하기 - Object로 조회")
     void findAllBeanByObjectType() {
         Map<String, Object> beansOfType = ac.getBeansOfType(Object.class);
-        assertThat(beansOfType.size()).isEqualTo(2);//실패 -> 스프링내부적으로 쓰는 빈들도 나옴.
+        assertThat(beansOfType.size()).isNotEqualTo(2);//실패 -> 스프링내부적으로 쓰는 빈들도 나옴.
     }
 
     @Configuration

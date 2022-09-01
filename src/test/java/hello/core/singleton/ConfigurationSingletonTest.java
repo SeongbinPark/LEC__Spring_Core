@@ -20,7 +20,7 @@ public class ConfigurationSingletonTest {
 
         MemberRepository memberRepository = ac.getBean("memberRepository", MemberRepository.class);
         Assertions.assertThat(memberService.getMemberRepository())
-                .isSameAs(orderService.getMemberRepository());
+                .isSameAs(orderService.getMemberRepository()).isSameAs(memberRepository);
 
     }
 

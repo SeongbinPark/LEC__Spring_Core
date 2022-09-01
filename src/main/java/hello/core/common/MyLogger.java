@@ -12,6 +12,7 @@ import java.util.UUID;
 @Component
 @Scope(value = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)//인터페이스면 인터페이스.
 //가짜(프록시)를 만드는 것.
+//MyLogger의 가짜 프록시 클래스를 만들어두고 HTTP request와 상관없이 프록시클래스를 다른 빈에 미리 주입해 둘 수 있다.
 public class MyLogger {
 
     private String uuid;

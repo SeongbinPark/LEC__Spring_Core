@@ -31,6 +31,8 @@ public class PrototypeTest {
 
         prototypeBean1.destroy();
         prototypeBean2.destroy();
+        //destroy() 를 따로 해줘야한다. -> 프로토타입 빈은 스프링이 @PreDestroy 해주지 않는다.
+        // 스프링은 초기화 까지만 처리.
 
         ac.close();
     }

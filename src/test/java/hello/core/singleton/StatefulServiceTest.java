@@ -23,10 +23,6 @@ public class StatefulServiceTest {
         System.out.println("userAPrice = " + userAPrice);
         System.out.println("userBPrice = " + userBPrice);
 
-
-
-        
-
         //ThreadA: 사용자A 가 줌누금액 조회
 //        int price = statefullService1.getPrice();//20000원 출력
 

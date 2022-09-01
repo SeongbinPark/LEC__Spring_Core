@@ -14,6 +14,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ApplicationContextSameBeanFindTest {
 
@@ -26,7 +27,7 @@ public class ApplicationContextSameBeanFindTest {
         //MemberRepository bean = ac.getBean(MemberRepository.class);
         //MemberRepository 타입으로만 getBean 하면 둘 중 뭘 선택해야하지???고민-> 예외터짐.
         //(NoUniqueBeanDefinitionException)
-        Assertions.assertThrows(NoUniqueBeanDefinitionException.class,
+        assertThrows(NoUniqueBeanDefinitionException.class,
                 () -> ac.getBean(MemberRepository.class));
     }//예외 터져야 성공한 테스트
 

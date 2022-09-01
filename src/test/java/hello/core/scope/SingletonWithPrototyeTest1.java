@@ -38,7 +38,7 @@ public class SingletonWithPrototyeTest1 {
 
         ClientBean clientBean2 = ac.getBean(ClientBean.class);
         int count2 = clientBean2.logic();
-        assertThat(count2).isEqualTo(2);
+        assertThat(count2).isEqualTo(1);
     }
 
     @Scope("singleton")
@@ -71,7 +71,7 @@ public class SingletonWithPrototyeTest1 {
 
         @PostConstruct
         public void init() {
-            System.out.println("PorototypeBean.init" + this);
+            System.out.println("PorototypeBean.init " + this);
         }
 
         @PreDestroy//호출 안되는 건데 걍 씀.

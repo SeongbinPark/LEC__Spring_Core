@@ -19,7 +19,7 @@ public class ComponentFilterAppConfigTest {
         BeanA beanA = ac.getBean("beanA", BeanA.class);
         Assertions.assertThat(beanA).isNotNull();//beanA는 스캔한다
 
-        BeanB beanB = ac.getBean("beanB", BeanB.class);
+//        BeanB beanB = ac.getBean("beanB", BeanB.class);
         assertThrows(NoSuchBeanDefinitionException.class,//beanB는 스캔하지않는다.
                 ()->ac.getBean("beanB", BeanB.class));
     }
